@@ -1,6 +1,7 @@
 require("plugins")
 require("keymaps")
 require("nvimtree")
+require("disable-arrows")
 -- Set tab size to 4 spaces
 vim.opt.tabstop = 4
 -- Set shiftwidth to 4 spaces

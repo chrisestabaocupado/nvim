@@ -8,6 +8,10 @@ local function my_on_attach(bufnr)
   -- custom keymaps
   -- space + k: open on new tab
   vim.keymap.set('n', '<Space>k', api.node.open.tab, opts('Open: New Tab'))
+  -- shift + h: move to previous tab
+  vim.api.nvim_set_keymap('n', '<S-h>', ':tabprevious<CR>', {noremap = true, silent = true})
+  -- shift + l: move to next tab
+  vim.api.nvim_set_keymap('n', '<S-l>', ':tabnext<CR>', {noremap = true, silent = true})
   -- space + h: toggle tree
   vim.api.nvim_set_keymap('n', '<Space>h', ":NvimTreeToggle<CR>", { noremap = true })
   -- space + hh: switch focus between buffer and tree
