@@ -1,6 +1,3 @@
--- keymaps.lua
-local map = vim.api.nvim_set_keymap
--- Custom Keybinds
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
   local function opts(desc)
@@ -9,28 +6,29 @@ local function my_on_attach(bufnr)
   -- default mappings
   api.config.mappings.default_on_attach(bufnr) 
   -- custom keymaps
-  vim.keymap.set('n', '<S-Up>', api.node.open.tab, opts('Open: New Tab')) -- Shift + Up: Open Tab
-  vim.keymap.set('n', '<S-Left>', api.tree.focus) -- Shift + Left: Focus Tree
-  vim.keymap.set('n', '<CS-Left>', api.tree.toggle) -- Shift + Left: Focus Tree
-  -- cwitching between buffer and tree
-  vim.keymap.set('n', '<S-Left>', function()
-    -- cerificar si el árbol está visible
+  -- space + k: open on new tab
+  vim.keymap.set('n', '<Space>k', api.node.open.tab, opts('Open: New Tab'))
+  -- space + h: toggle tree
+  vim.api.nvim_set_keymap('n', '<Space>h', ":NvimTreeToggle<CR>", { noremap = true })
+  -- space + hh: switch focus between buffer and tree
+  vim.keymap.set('n', '<Space>hh', function()
+    -- verifying if tree is visible
     if api.tree.is_visible() then
-        -- cerrar el árbol y cambiar al buffer anterior
+        -- changing windows
         vim.cmd('wincmd p')
     else
-        -- abrir el árbol
+        -- open if is not
         api.tree.open()
     end
   end, {noremap = true, silent = true})
-
+  -- end
 end
 -- setup nvim-tree
 require("nvim-tree").setup({
   sort = {
     sorter = "case_sensitive",
   },
-  on_attach = my_on_attach, -- Custom Keybinds
+  on_attach = my_on_attach, -- custom Keybinds
   view = {
     width = 30,
   },
