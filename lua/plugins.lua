@@ -47,6 +47,7 @@ return packer.startup(function(use)
 	use { "vim/colorschemes" }
 
 	use { "nvim-tree/nvim-tree.lua", as = "nvim-tree"} -- Directory Tree
+	use 'nvim-tree/nvim-web-devicons'
 	-- Instalar y cargar el plugin de Treesitter
   	use {
 		'nvim-treesitter/nvim-treesitter',
