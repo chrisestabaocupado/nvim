@@ -13,9 +13,9 @@ local function my_on_attach(bufnr)
   -- shift + l: move to next tab
   vim.api.nvim_set_keymap('n', '<S-l>', ':tabnext<CR>', {noremap = true, silent = true})
   -- space + h: toggle tree
-  vim.api.nvim_set_keymap('n', '<Space>h', ":NvimTreeToggle<CR>", { noremap = true })
+  vim.api.nvim_set_keymap('n', '<Space><Tab>', ":NvimTreeToggle<CR>", { noremap = true })
   -- space + hh: switch focus between buffer and tree
-  vim.keymap.set('n', '<Space>hh', function()
+  vim.keymap.set('n', '<Space><Tab><Tab>', function()
     -- verifying if tree is visible
     if api.tree.is_visible() then
         -- changing windows

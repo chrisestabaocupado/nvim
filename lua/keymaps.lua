@@ -1,11 +1,6 @@
 -- keymaps.lua
 local map = vim.api.nvim_set_keymap
 local builtin = require('telescope.builtin')
--- movement on insert mode
-map('i', '<C-h>', '<Left>', { noremap = true, silent = true })
-map('i', '<C-j>', '<Down>', { noremap = true, silent = true })
-map('i', '<C-k>', '<Up>', { noremap = true, silent = true })
-map('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 -- keymaps
 map('n', '<Space>qq', ':wa<CR>:qa<CR>', { noremap = true, silent = true }) -- Space+qq: Cerrar sin Guardar
 map('n', '<C-w>', ':w<CR>', { noremap = true, silent = false }) -- Control+w: Guardar (:w)

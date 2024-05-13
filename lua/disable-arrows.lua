@@ -1,10 +1,24 @@
--- Disable arrow keys in all modes
-vim.api.nvim_set_keymap('', '<Up>', '<Nop>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('', '<Down>', '<Nop>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('', '<Left>', '<Nop>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('', '<Right>', '<Nop>', {noremap = true, silent = true})
--- Disable arrow keys in INSERT
-vim.api.nvim_set_keymap('i', '<Up>', '<Nop>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<Down>', '<Nop>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<Left>', '<Nop>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<Right>', '<Nop>', {noremap = true, silent = true})
+local map = vim.api.nvim_set_keymap
+-- Deshabilitar las teclas de flecha en todos los modos
+map('n', '<Up>', '<NOP>', {noremap = true, silent = true})
+map('n', '<Down>', '<NOP>', {noremap = true, silent = true})
+map('n', '<Left>', '<NOP>', {noremap = true, silent = true})
+map('n', '<Right>', '<NOP>', {noremap = true, silent = true})
+map('i', '<Up>', '<NOP>', {noremap = true, silent = true})
+map('i', '<Down>', '<NOP>', {noremap = true, silent = true})
+map('i', '<Left>', '<NOP>', {noremap = true, silent = true})
+map('i', '<Right>', '<NOP>', {noremap = true, silent = true})
+map('v', '<Up>', '<NOP>', {noremap = true, silent = true})
+map('v', '<Down>', '<NOP>', {noremap = true, silent = true})
+map('v', '<Left>', '<NOP>', {noremap = true, silent = true})
+map('v', '<Right>', '<NOP>', {noremap = true, silent = true})
+-- 
+map('i', '<S-h>', '<Left>', { noremap = true, silent = true })
+map('i', '<S-j>', '<Down>', { noremap = true, silent = true })
+map('i', '<S-k>', '<Up>', { noremap = true, silent = true })
+map('i', '<S-l>', '<Right>', { noremap = true, silent = true })
+--
+map('i', '<CS-h>', '<CS-Left>', { noremap = true, silent = true })
+map('i', '<CS-l>', '<CS-Right>', { noremap = true, silent = true })
+map('n', '<CS-h>', '<CS-Left>', { noremap = true, silent = true })
+map('n', '<CS-l>', '<CS-Right>', { noremap = true, silent = true })

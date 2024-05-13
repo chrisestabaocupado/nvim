@@ -41,13 +41,23 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 	use ("wbthomason/packer.nvim") -- Have packer manage itself
-	
-	use { "catppuccin/nvim", as = "catppuccin" } -- Color Scheme
-	use { "folke/tokyonight.nvim", as = "tokyonight" }
-	use { "vim/colorschemes" }
-
+	use { "catppuccin/nvim", as = "catppuccin" } -- Catppuchin Color Schemes
+	use { "folke/tokyonight.nvim", as = "tokyonight" } -- Tokyonight Color Schemes
+	use { "vim/colorschemes" } -- Aditional Color Schemes
 	use { "nvim-tree/nvim-tree.lua", as = "nvim-tree"} -- Directory Tree
-	use 'nvim-tree/nvim-web-devicons'
+	use { "lukas-reineke/indent-blankline.nvim" } -- Indent 
+	use "nvim-tree/nvim-web-devicons" -- nvim-tree icons
+	use { "ms-jpq/coq_nvim", branch = "coq" }
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig"
+	}
+	-- Telescope
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.6',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 	-- Instalar y cargar el plugin de Treesitter
   	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -57,7 +67,6 @@ return packer.startup(function(use)
         	end,
 
 	}
-
 	-- Habilitar Treesitter en todos los archivos admitidos
 	require'nvim-treesitter.configs'.setup {
 		ensure_installed = { "lua", "javascript", "python", "sql", "html", "css", "typescript" },
@@ -66,12 +75,7 @@ return packer.startup(function(use)
 			enable = true,
     		},
   	}
-	
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.6',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
-
+	-- Packer
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

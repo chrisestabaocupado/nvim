@@ -1,6 +1,7 @@
+require("configs.lspconfig")
 require("plugins")
-require("keymaps")
 require("nvimtree")
+require("keymaps")
 require("disable-arrows")
 -- Set tab size to 4 spaces
 vim.opt.tabstop = 4
@@ -18,3 +19,5 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 -- color scheme
 vim.cmd.colorscheme "tokyonight-night"
+-- indent
+require("ibl").setup()
