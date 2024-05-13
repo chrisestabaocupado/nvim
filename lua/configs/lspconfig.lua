@@ -16,3 +16,9 @@ lspconfig.tsserver.setup({
 })
 
 vim.cmd('COQnow -s')
+
+vim.g.coq_settings = {
+    keymap = {
+        ['recommended'] = false,
+    }
+}
